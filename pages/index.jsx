@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
+import { skills } from '../profile';
 
 const Index = () => (
     <Layout>
@@ -23,6 +24,34 @@ const Index = () => (
                 </div>
             </div>
         </header>
+
+        {/* Second Section */}
+        <div className="row py-3">
+            <div className="col-md-4">
+                <div className="card bg-light">
+                    <div className="card-body">
+                        <h1>Skills</h1>
+                        {
+                            skills.map((skill, idx) => (
+                                <div className="my-3" key={ idx }>
+                                    <h5>{ skill.skill }</h5>
+                                    <div className="progress">
+                                        <div className="progress-bar" role="progressbar" style={{ width: skill.percentage+'%' }}> </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className="col-md-8">
+                <div className="card bg-light">
+                    <div className="card-body">
+                        <h1>Experience</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     </Layout>
 )
 
