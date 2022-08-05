@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 
 const Blog = () => (
-    <Layout>
+    <Layout footer={ false } dark>
         <h1>Blog</h1>
     </Layout>
 )
