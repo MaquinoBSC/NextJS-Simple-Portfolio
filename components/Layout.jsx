@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import NProgress from "nprogress";
 import NavBar from "./NavBar";
 
-const Layout = ({ children, footer = true, dark }) => {
+const Layout = ({ children, title,  footer = true, dark }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -27,6 +27,11 @@ const Layout = ({ children, footer = true, dark }) => {
         <div className={ dark ? 'bg-dark' : ''}>
             <NavBar />
             <main className="container py-4">
+                {
+                    title && (
+                        <h1 className={'text-center ' + ( dark ? 'text-light' : 'text-dark')}>{ title }</h1>
+                    )
+                }
                 { children }
             </main>
             {
