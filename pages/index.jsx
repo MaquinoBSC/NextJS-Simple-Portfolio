@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
-import { skills, experiences } from '../profile';
+import { skills, experiences, projects } from '../profile';
 
 const Index = () => (
     <Layout>
@@ -25,7 +25,7 @@ const Index = () => (
             </div>
         </header>
 
-        {/* Second Section */}
+        {/* Experiences Section */}
         <div className="row py-3">
             <div className="col-md-4">
                 <div className="card bg-light">
@@ -59,6 +59,40 @@ const Index = () => (
                                 ))
                             }
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* PortFolio Section */}
+        <div className="row">
+            <div className="col-md-12">
+                <div className="card card-body bg-dark">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h1 className="text-center text-light">PortFolio</h1>
+                        </div>
+                        {
+                            projects.map((project, idx) => (
+                                <div className="col-md-4 p-md-4" key={ idx }>
+                                    <div className="card h-100">
+                                        <div className="overflow">
+                                            <img src={`/${project.image}`} className="card-img-top" />
+                                        </div>
+                                        <div className="card-body">
+                                            <h3>{ project.name }</h3>
+                                            <p>{ project.description }</p>
+                                            <a href="">Know More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <div className="text-center mt-4">
+                        <Link href={ '/portfolio' }>
+                            <a className="btn btn-outline-info"> More projects</a>
+                        </Link>
                     </div>
                 </div>
             </div>
