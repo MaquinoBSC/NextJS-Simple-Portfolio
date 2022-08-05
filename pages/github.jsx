@@ -1,6 +1,12 @@
 import Layout from "../components/Layout";
+import Error from "./_error";
 
 const GitHub = (props) => {
+    if(props.statusCode){
+        return <Error statusCode={ props.statusCode } />
+    }
+
+
     return (
         <Layout>
             <div className="row">
@@ -23,9 +29,12 @@ export async function getServerSideProps() {
     const data = await res.json();
     console.log(data);
 
+    const statusCode = res.status > 200 ? res.status : false;
+
     return {
         props: {
-            user: data
+            user: data,
+            statusCode,
         }
     }
 }
